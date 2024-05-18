@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://pgmm4kl4wvn8"]
+
+[ext_resource type="Texture2D" uid="uid://dmop0dx18wopv" path="res://icon.svg" id="1_1hn12"]
+[ext_resource type="Script" path="res://Area2D.gd" id="2_tns22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqhln"]
+size = Vector2(165, 185)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ays6u"]
+radius = 54.2033
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-3, -360)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(377, 181)
+shape = SubResource("RectangleShape2D_gqhln")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(375, 184)
+texture = ExtResource("1_1hn12")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2"]
+position = Vector2(288, 187)
+scale = Vector2(1.84106, 2.04554)
+script = ExtResource("2_tns22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D"]
+position = Vector2(54.8695, -3.33417)
+shape = SubResource("CircleShape2D_ays6u")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-6, -720)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(377, 181)
+shape = SubResource("RectangleShape2D_gqhln")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(375, 184)
+texture = ExtResource("1_1hn12")
+
+[node name="Area2D2" type="Area2D" parent="StaticBody2D3"]
+position = Vector2(288, 187)
+scale = Vector2(1.84106, 2.04554)
+script = ExtResource("2_tns22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/Area2D2"]
+position = Vector2(54.8695, -3.33417)
+shape = SubResource("CircleShape2D_ays6u")
+
+[connection signal="area_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2/Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="StaticBody2D3/Area2D2" to="StaticBody2D3/Area2D2" method="_on_area_entered"]

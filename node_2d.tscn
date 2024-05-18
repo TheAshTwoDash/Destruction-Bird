@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://dccniwtfvvhji"]
+
+[ext_resource type="Script" path="res://Bird.gd" id="1_1addt"]
+[ext_resource type="Texture2D" uid="uid://dmop0dx18wopv" path="res://icon.svg" id="2_r6yva"]
+[ext_resource type="Script" path="res://Area2D.gd" id="3_ltoyk"]
+[ext_resource type="PackedScene" uid="uid://pgmm4kl4wvn8" path="res://static_body_2d_2.tscn" id="4_2u2xl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqhln"]
+size = Vector2(165, 185)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ays6u"]
+radius = 54.2033
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjluo"]
+radius = 40.6079
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pnwgv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-707, 119)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(377, 181)
+shape = SubResource("RectangleShape2D_gqhln")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(375, 184)
+texture = ExtResource("2_r6yva")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+position = Vector2(288, 187)
+scale = Vector2(1.74961, 2.69932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(54.8695, -3.33417)
+shape = SubResource("CircleShape2D_ays6u")
+
+[node name="Bird" type="CharacterBody2D" parent="."]
+position = Vector2(-819, -13)
+script = ExtResource("1_1addt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird"]
+position = Vector2(72, 7)
+shape = SubResource("CircleShape2D_qjluo")
+
+[node name="Icon" type="Sprite2D" parent="Bird"]
+position = Vector2(72, 0)
+texture = ExtResource("2_r6yva")
+
+[node name="HitBox" type="Area2D" parent="Bird"]
+script = ExtResource("3_ltoyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird/HitBox"]
+position = Vector2(76, -3)
+shape = SubResource("CircleShape2D_ays6u")
+
+[node name="Camera2D" type="Camera2D" parent="Bird"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1004, -81)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pnwgv")
+
+[node name="Node2D" parent="." instance=ExtResource("4_2u2xl")]
+position = Vector2(-854, 320)
+
+[node name="Node2D" parent="Node2D" instance=ExtResource("4_2u2xl")]
+position = Vector2(267, -76)
+
+[node name="Node2D2" parent="Node2D" instance=ExtResource("4_2u2xl")]
+position = Vector2(534, -3)
+
+[node name="Node2D" parent="Node2D/Node2D2" instance=ExtResource("4_2u2xl")]
+position = Vector2(282, 10)
