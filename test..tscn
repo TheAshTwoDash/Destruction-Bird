@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://60d3gic8jw1a"]
+
+[sub_resource type="GDScript" id="GDScript_bm0be"]
+script/source = "extends Node2D
+
+signal health_depleted
+
+var health = 10
+
+func take_damage(amount):
+	health -= amount
+	if health <= 0:
+		health_depleted.emit()
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_bm0be")

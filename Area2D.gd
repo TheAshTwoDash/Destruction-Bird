@@ -1,11 +1,13 @@
 extends Area2D
-
-
-func _on_area_2d_area_entered(area):
-	print("well well")
-
-
+@onready var hit_box = $"."
 
 func _on_area_entered(area):
-	print("well well")
+	if area == hit_box:
+		print("how")
+
+
+
+func _on_area_2d_2_area_entered(area):
+	if area == hit_box:
+		print("how2")
 

@@ -1,16 +1,20 @@
 extends CharacterBody2D
 
-
+@onready var label = $Label
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
+var pos = Vector2(30,20)
+var fullpos = str(position)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var switch = false
+
 
 func _physics_process(delta):
 	# Add the gravity.
+	fullpos = str(position)
+	label.text = fullpos
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -19,14 +23,14 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		get_tree().paused = false
 		
-	if Input.is_action_just_pressed("Pause") :
-		get_tree().paused = true
+
 		
-	
+	if Input.is_action_just_pressed("ui_down"):
+		position = pos
+		
 	
 		
 	velocity.x=SPEED
 	
 	move_and_slide()
-
 
