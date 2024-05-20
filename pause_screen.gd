@@ -26,7 +26,7 @@ func _on_continue_pressed() :
 	Resume()
 	pass # Replace with function body.
 func _on_pause_pressed():
-	pause.hide() ##Remove this later please
+	 ##Remove this later please
 	Pause()
 
 
@@ -35,6 +35,7 @@ func _on_restart_pressed():
 
 
 func _on_quit_pressed():
+	
 	pass # Replace with function body.
 
 

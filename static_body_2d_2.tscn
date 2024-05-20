@@ -6,34 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqhln"]
 size = Vector2(165, 185)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6nwlg"]
-radius = 54.2033
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoofa"]
+size = Vector2(95.5971, 95.3294)
 
-[node name="Node2D" type="Node2D"]
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-3, -360)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(377, 181)
-shape = SubResource("RectangleShape2D_gqhln")
-
-[node name="Icon" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(375, 184)
-texture = ExtResource("1_1hn12")
-
-[node name="Area2D2" type="Area2D" parent="StaticBody2D2"]
-position = Vector2(288, 187)
-scale = Vector2(1.84106, 2.04554)
-script = ExtResource("2_tns22")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D2"]
-position = Vector2(54.8695, -3.33417)
-shape = SubResource("CircleShape2D_6nwlg")
+[node name="Tower" type="Node2D"]
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-6, -720)
+scale = Vector2(1, 2.03461)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
@@ -41,7 +21,8 @@ position = Vector2(377, 181)
 shape = SubResource("RectangleShape2D_gqhln")
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D3"]
-position = Vector2(375, 184)
+position = Vector2(374.5, 178)
+scale = Vector2(1.35156, 1.46875)
 texture = ExtResource("1_1hn12")
 
 [node name="Area2D2" type="Area2D" parent="StaticBody2D3"]
@@ -50,9 +31,33 @@ scale = Vector2(1.84106, 2.04554)
 script = ExtResource("2_tns22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/Area2D2"]
-position = Vector2(54.8695, -3.33417)
-shape = SubResource("CircleShape2D_6nwlg")
+position = Vector2(48.3417, -3.6665)
+shape = SubResource("RectangleShape2D_uoofa")
+debug_color = Color(0.952682, 0, 0.349203, 0.42)
 
-[connection signal="area_entered" from="StaticBody2D2/Area2D2" to="StaticBody2D2/Area2D2" method="_on_area_entered"]
-[connection signal="area_entered" from="StaticBody2D3/Area2D2" to="StaticBody2D2/Area2D2" method="_on_area_2d_2_area_entered"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-9, -100)
+scale = Vector2(1, 2.25279)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(377, 181)
+shape = SubResource("RectangleShape2D_gqhln")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(374.5, 178)
+scale = Vector2(1.35156, 1.46875)
+texture = ExtResource("1_1hn12")
+
+[node name="Area2D2" type="Area2D" parent="StaticBody2D4"]
+position = Vector2(288, 187)
+scale = Vector2(1.84106, 2.04554)
+script = ExtResource("2_tns22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4/Area2D2"]
+position = Vector2(48.3417, -3.6665)
+shape = SubResource("RectangleShape2D_uoofa")
+debug_color = Color(0.952682, 0, 0.349203, 0.42)
+
 [connection signal="area_entered" from="StaticBody2D3/Area2D2" to="StaticBody2D3/Area2D2" method="_on_area_entered"]
+[connection signal="area_entered" from="StaticBody2D4/Area2D2" to="StaticBody2D4/Area2D2" method="_on_area_entered"]

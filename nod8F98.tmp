@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dccniwtfvvhji"]
+[gd_scene load_steps=10 format=3 uid="uid://dccniwtfvvhji"]
 
 [ext_resource type="Script" path="res://Bird.gd" id="1_1addt"]
 [ext_resource type="Script" path="res://building_move.gd" id="1_hlgvw"]
@@ -6,9 +6,6 @@
 [ext_resource type="Script" path="res://Area2D.gd" id="3_ltoyk"]
 [ext_resource type="PackedScene" uid="uid://dh22krj8fa443" path="res://pause_screen.tscn" id="4_3x1lx"]
 [ext_resource type="Script" path="res://pause_screen.gd" id="5_tvt64"]
-[ext_resource type="Script" path="res://MobileControls.gd" id="7_r22mh"]
-[ext_resource type="Script" path="res://random_building.gd" id="7_vq7ym"]
-[ext_resource type="PackedScene" uid="uid://pgmm4kl4wvn8" path="res://static_body_2d_2.tscn" id="7_w57f6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqhln"]
 size = Vector2(165, 185)
@@ -62,21 +59,18 @@ position = Vector2(76, -3)
 shape = SubResource("CircleShape2D_ays6u")
 
 [node name="Camera2D" type="Camera2D" parent="Bird"]
-position = Vector2(105, 12)
-scale = Vector2(200, 200)
 
 [node name="Label" type="Label" parent="Bird"]
-offset_left = -283.0
-offset_top = -299.0
-offset_right = -15.0
-offset_bottom = -198.0
-text = "dddd"
+offset_left = -491.0
+offset_top = -290.0
+offset_right = -245.0
+offset_bottom = -225.0
 
 [node name="pause" type="Button" parent="Bird"]
-offset_left = -470.0
-offset_top = -311.0
-offset_right = -287.0
-offset_bottom = -164.0
+offset_left = -560.0
+offset_top = -306.0
+offset_right = -377.0
+offset_bottom = -159.0
 
 [node name="PauseScreen" parent="Bird" instance=ExtResource("4_3x1lx")]
 visible = false
@@ -106,78 +100,9 @@ offset_top = 204.0
 offset_right = 421.0
 offset_bottom = 343.0
 
-[node name="Control" type="Control" parent="Bird"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 819.0
-offset_top = 13.0
-offset_right = 859.0
-offset_bottom = 53.0
-script = ExtResource("7_r22mh")
-
-[node name="Up" type="Button" parent="Bird/Control"]
-layout_mode = 0
-offset_left = -1187.0
-offset_top = 63.0
-offset_right = -1081.0
-offset_bottom = 164.0
-
-[node name="Down" type="Button" parent="Bird/Control"]
-layout_mode = 0
-offset_left = -1183.0
-offset_top = 221.0
-offset_right = -1061.0
-offset_bottom = 315.0
-
-[node name="Right" type="Button" parent="Bird/Control"]
-offset_left = -1092.0
-offset_top = 120.0
-offset_right = -983.0
-offset_bottom = 221.0
-
-[node name="Left" type="Button" parent="Bird/Control"]
-offset_left = -1265.0
-offset_top = 120.0
-offset_right = -1157.0
-offset_bottom = 225.0
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-717, -397)
-script = ExtResource("1_hlgvw")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(377, 181)
-shape = SubResource("RectangleShape2D_gqhln")
-
-[node name="Icon" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(375, 184)
-texture = ExtResource("2_r6yva")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D2"]
-position = Vector2(288, 187)
-scale = Vector2(1.74961, 2.69932)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D"]
-position = Vector2(54.8695, -3.33417)
-shape = SubResource("CircleShape2D_ays6u")
-
-[node name="Tower" parent="." instance=ExtResource("7_w57f6")]
-position = Vector2(-902, -19)
-script = ExtResource("7_vq7ym")
-
-[connection signal="pressed" from="Bird/pause" to="StaticBody2D" method="_on_pause_pressed"]
 [connection signal="pressed" from="Bird/pause" to="Bird/PauseScreen" method="_on_pause_pressed"]
 [connection signal="pressed" from="Bird/PauseScreen/Continue" to="Bird/PauseScreen" method="_on_continue_pressed"]
 [connection signal="pressed" from="Bird/PauseScreen/Restart" to="Bird/PauseScreen" method="_on_restart_pressed"]
 [connection signal="pressed" from="Bird/PauseScreen/Quit" to="Bird/PauseScreen" method="_on_quit_pressed"]
-[connection signal="button_down" from="Bird/Control/Up" to="Bird/Control" method="_on_up_button_down"]
-[connection signal="button_up" from="Bird/Control/Up" to="Bird/Control" method="_on_up_button_up"]
-[connection signal="button_down" from="Bird/Control/Down" to="Bird/Control" method="_on_down_button_down"]
-[connection signal="button_up" from="Bird/Control/Down" to="Bird/Control" method="_on_down_button_up"]
-[connection signal="button_down" from="Bird/Control/Right" to="Bird/Control" method="_on_right_button_down"]
-[connection signal="button_up" from="Bird/Control/Right" to="Bird/Control" method="_on_right_button_up"]
-[connection signal="button_down" from="Bird/Control/Left" to="Bird/Control" method="_on_left_button_down"]
-[connection signal="button_up" from="Bird/Control/Left" to="Bird/Control" method="_on_left_button_up"]
 
 [editable path="Bird/PauseScreen"]
