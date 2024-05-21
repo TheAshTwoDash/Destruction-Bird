@@ -42,8 +42,8 @@ scale = Vector2(3.98567, 4.50347)
 shape = SubResource("RectangleShape2D_76gef")
 
 [node name="Camera2D" type="Camera2D" parent="Bird"]
-position = Vector2(370.791, 84.6768)
-scale = Vector2(-230.367, -27.7482)
+position = Vector2(105, 12)
+scale = Vector2(200, 200)
 
 [node name="Label" type="Label" parent="Bird"]
 offset_left = -283.0

@@ -1,5 +1,4 @@
 extends Control
-@onready var canvas_layer = $".."
 @onready var pause = $"../pause"
 
 func _ready():
@@ -31,11 +30,11 @@ func _on_pause_pressed():
 
 
 func _on_restart_pressed():
-	pass # Replace with function body.
-
+	Resume()
+	BuildingTrack.scene_reset()
 
 func _on_quit_pressed():
-	
+	get_tree().quit()
 	pass # Replace with function body.
 
 
