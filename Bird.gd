@@ -1,6 +1,8 @@
 extends CharacterBody2D
-@onready var label = $Label
-@onready var score = $Score
+@onready var score = $"../CanvasLayer/Score"
+@onready var label = $"../CanvasLayer/Label"
+
+
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0

@@ -11,59 +11,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_el3fd")
 
-[node name="Play" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0138889
-anchor_top = 0.0617284
-anchor_right = -0.0138889
-anchor_bottom = 0.0617284
-offset_left = 466.0
-offset_top = 49.0
-offset_right = 580.0
-offset_bottom = 118.0
-scale = Vector2(2.2351, 2.27008)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -88.0
+offset_right = 1524.0
+offset_bottom = 716.0
+scale = Vector2(0.733992, 1.0296)
+alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
 text = "Play"
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -4.7536
-anchor_top = -0.323412
-anchor_right = -4.7536
-anchor_bottom = -0.323412
-offset_left = 5912.15
-offset_top = 465.571
-offset_right = 6026.15
-offset_bottom = 534.571
-scale = Vector2(2.2351, 2.27008)
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
 text = "Settings"
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.91457
-anchor_top = 0.407251
-anchor_right = -0.91457
-anchor_bottom = 0.407251
-offset_left = 1501.58
-offset_top = 164.101
-offset_right = 1615.58
-offset_bottom = 233.101
-scale = Vector2(2.2351, 2.27008)
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
 text = "Quit
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 252.0
-offset_top = 237.0
-offset_right = 418.0
-offset_bottom = 386.0
-
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

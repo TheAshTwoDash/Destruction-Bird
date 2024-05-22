@@ -33,9 +33,12 @@ func _on_restart_pressed():
 	Resume()
 	BuildingTrack.scene_reset()
 
-func _on_quit_pressed():
-	get_tree().quit()
+
+func _on_menu_pressed():
+	
+	Resume()
+	get_tree().change_scene_to_file("res://Menu.tscn")
+	BuildingTrack.pos = 0
+	BuildingTrack.score = -1
+	
 	pass # Replace with function body.
-
-
-

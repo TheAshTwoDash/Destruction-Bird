@@ -47,3 +47,4 @@ test2={
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(6.46757e-08, 0.0415251, 0.0783704, 1)

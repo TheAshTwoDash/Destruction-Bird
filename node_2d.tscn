@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://dccniwtfvvhji"]
+[gd_scene load_steps=13 format=3 uid="uid://dccniwtfvvhji"]
 
 [ext_resource type="Script" path="res://Bird.gd" id="1_1addt"]
 [ext_resource type="Script" path="res://Game.gd" id="1_vs2v4"]
-[ext_resource type="Texture2D" uid="uid://dmop0dx18wopv" path="res://icon.svg" id="2_r6yva"]
 [ext_resource type="Script" path="res://Area2D.gd" id="3_ltoyk"]
+[ext_resource type="Texture2D" uid="uid://8caff4vi3hlp" path="res://art/bird.png" id="3_wib3x"]
 [ext_resource type="PackedScene" uid="uid://dh22krj8fa443" path="res://pause_screen.tscn" id="4_3x1lx"]
-[ext_resource type="Script" path="res://pause_screen.gd" id="5_tvt64"]
+[ext_resource type="Texture2D" uid="uid://dxupoak7cq3yn" path="res://art/background_tile.png" id="7_dhsw8"]
 [ext_resource type="Script" path="res://MobileControls.gd" id="7_r22mh"]
 [ext_resource type="PackedScene" uid="uid://pgmm4kl4wvn8" path="res://static_body_2d_2.tscn" id="7_w57f6"]
+[ext_resource type="Texture2D" uid="uid://c3j6jw2icandq" path="res://art/pause.png" id="9_hi84e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_76gef"]
-size = Vector2(29.941, 27.0983)
+[sub_resource type="CircleShape2D" id="CircleShape2D_bv7eu"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5ia1e"]
+a = Vector2(-9.24907, 7.90602)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgqbn"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_vs2v4")
@@ -20,79 +25,46 @@ position = Vector2(-819, -13)
 scale = Vector2(0.738961, 0.803053)
 script = ExtResource("1_1addt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird"]
-z_index = 1
-position = Vector2(73.0754, 0.217766)
-rotation = -3.14159
-scale = Vector2(4.62633, 5.07169)
-shape = SubResource("RectangleShape2D_76gef")
-
 [node name="Icon" type="Sprite2D" parent="Bird"]
 position = Vector2(72, 0)
-texture = ExtResource("2_r6yva")
+scale = Vector2(0.247394, 0.254013)
+texture = ExtResource("3_wib3x")
 
 [node name="HitBox" type="Area2D" parent="Bird"]
 script = ExtResource("3_ltoyk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bird/HitBox"]
 z_index = 1
-position = Vector2(86.4838, 8.71578)
-rotation = -3.14159
-scale = Vector2(3.98567, 4.50347)
-shape = SubResource("RectangleShape2D_76gef")
+position = Vector2(94.7276, -19.924)
+rotation = -2.1594
+scale = Vector2(-4.1484, 4.39574)
+shape = SubResource("CircleShape2D_bv7eu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bird/HitBox"]
+z_index = 1
+position = Vector2(110.967, 43.5837)
+rotation = -1.96731
+scale = Vector2(-2.41796, -5.12484)
+shape = SubResource("SegmentShape2D_5ia1e")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bird/HitBox"]
+z_index = 1
+position = Vector2(50.0703, 18.6787)
+rotation = -1.79843
+scale = Vector2(-2.14348, 3.84435)
+shape = SubResource("CapsuleShape2D_jgqbn")
 
 [node name="Camera2D" type="Camera2D" parent="Bird"]
 position = Vector2(370.791, 84.6768)
 scale = Vector2(-230.367, -27.7482)
 
-[node name="Label" type="Label" parent="Bird"]
-offset_left = -283.0
-offset_top = -299.0
-offset_right = -15.0
-offset_bottom = -198.0
-text = "dddd"
-
-[node name="pause" type="Button" parent="Bird"]
-offset_left = -470.0
-offset_top = -311.0
-offset_right = -287.0
-offset_bottom = -164.0
-
-[node name="PauseScreen" parent="Bird" instance=ExtResource("4_3x1lx")]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bird"]
 visible = false
 z_index = 1
-y_sort_enabled = true
-offset_left = -225.0
-offset_top = -40.0
-offset_right = -225.0
-offset_bottom = -40.0
-script = ExtResource("5_tvt64")
-
-[node name="Continue" parent="Bird/PauseScreen" index="0"]
-offset_left = 148.0
-offset_top = -194.0
-offset_right = 425.0
-offset_bottom = -55.0
-
-[node name="Restart" parent="Bird/PauseScreen" index="1"]
-offset_left = 151.0
-offset_top = 15.0
-offset_right = 428.0
-offset_bottom = 154.0
-
-[node name="Quit" parent="Bird/PauseScreen" index="2"]
-offset_left = 144.0
-offset_top = 204.0
-offset_right = 421.0
-offset_bottom = 343.0
-
-[node name="Score" type="Label" parent="Bird"]
-offset_left = -281.476
-offset_top = -267.728
-offset_right = -238.476
-offset_bottom = -244.728
-text = "Score
-"
+position = Vector2(75.7821, -7.47149)
+rotation = -2.1594
+scale = Vector2(-2.17025, 6.35777)
+shape = SubResource("CircleShape2D_bv7eu")
 
 [node name="Tower" parent="." instance=ExtResource("7_w57f6")]
 position = Vector2(-902, -19)
@@ -133,10 +105,52 @@ offset_top = 120.0
 offset_right = -1157.0
 offset_bottom = 225.0
 
-[connection signal="pressed" from="Bird/pause" to="Bird/PauseScreen" method="_on_pause_pressed"]
-[connection signal="pressed" from="Bird/PauseScreen/Continue" to="Bird/PauseScreen" method="_on_continue_pressed"]
-[connection signal="pressed" from="Bird/PauseScreen/Restart" to="Bird/PauseScreen" method="_on_restart_pressed"]
-[connection signal="pressed" from="Bird/PauseScreen/Quit" to="Bird/PauseScreen" method="_on_quit_pressed"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.44, 0.44, 0.44, 1)
+position = Vector2(301, 197)
+scale = Vector2(2.0666, 1.09066)
+texture = ExtResource("7_dhsw8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_3x1lx")]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+z_index = 1
+offset_left = 201.0
+offset_top = 79.0
+offset_right = 469.0
+offset_bottom = 180.0
+text = "dddd"
+
+[node name="pause" type="Button" parent="CanvasLayer"]
+z_index = 1
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 191.0
+offset_bottom = 151.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/pause"]
+position = Vector2(99, 66)
+scale = Vector2(0.368393, 0.284866)
+texture = ExtResource("9_hi84e")
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+z_index = 1
+offset_left = 202.0
+offset_top = 126.0
+offset_right = 245.0
+offset_bottom = 149.0
+text = "Score
+"
+
 [connection signal="child_entered_tree" from="Tower" to="." method="_on_tower_child_entered_tree"]
 [connection signal="tree_entered" from="Tower" to="." method="_on_tower_tree_entered"]
 [connection signal="button_down" from="Control/Up" to="Control" method="_on_up_button_down"]
@@ -147,5 +161,4 @@ offset_bottom = 225.0
 [connection signal="button_up" from="Control/Right" to="Control" method="_on_right_button_up"]
 [connection signal="button_down" from="Control/Left" to="Control" method="_on_left_button_down"]
 [connection signal="button_up" from="Control/Left" to="Control" method="_on_left_button_up"]
-
-[editable path="Bird/PauseScreen"]
+[connection signal="pressed" from="CanvasLayer/pause" to="CanvasLayer/Pause" method="_on_pause_pressed"]

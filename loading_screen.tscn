@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjfg3rfl4t8kn"]
+
+[ext_resource type="Script" path="res://loading_screen.gd" id="1_dq8p2"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dq8p2")
+
+[node name="Progress_number" type="Label" parent="."]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 298.0
+offset_right = 722.0
+offset_bottom = 435.0
+theme_override_font_sizes/font_size = 100
+
+[node name="Progress" type="Label" parent="."]
+offset_left = 447.0
+offset_top = 143.0
+offset_right = 727.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 100
+text = "Loading..."
